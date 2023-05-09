@@ -22,10 +22,10 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Awesome Books <a name="about-project"></a>
+# 📖 To Do List <a name="about-project"></a>
 
 
-**Awesome Books** is a web app that shows information about books.
+**To Do List** is a web app that demonstrates a To Do List App.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -51,10 +51,10 @@
 ### Key Features <a name="key-features"></a>
 
 
-- **Home Page**
-- **Add/Remove Books Page**
-- **Update Books Page**
-- **Time**
+- **List Structure**
+- **Add/Remove Tasks**
+- **Interactive Tasks**
+- **Webpack**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -97,7 +97,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone git@github.com:mailsg/Awesome-Books.git
+  git clone git@github.com:mailsg/To-do-list.git
 ```
 
 ### Install
@@ -143,11 +143,6 @@ To run tests, run the following command:
 
 - GitHub: [@mailsg](https://github.com/mailsg)
 
-👤 **Celyne**
-- GitHub: [@celyneBirungi](https://github.com/CELYNEBIRUNGI)
-
-
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
@@ -167,7 +162,7 @@ To run tests, run the following command:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [https://github.com/mailsg/Awesome-Books/issues](../../issues/).
+Feel free to check the [https://github.com/mailsg/To-do-list/issues](../../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
