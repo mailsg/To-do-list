@@ -59,20 +59,6 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-<!-- Live Link -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-    
-      NA
-
-
-##    Presentation of the Project
-      
-      NA      
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
