@@ -110,13 +110,33 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/addTask.js":
+/*!************************!*\
+  !*** ./src/addTask.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"addTask\": () => (/* binding */ addTask),\n/* harmony export */   \"form\": () => (/* binding */ form),\n/* harmony export */   \"input\": () => (/* binding */ input)\n/* harmony export */ });\nconst form = document.querySelector('form');\nconst input = document.querySelector('.placeholder');\n\nconst addTask = (arr, item) => {\n  function Task(item) {\n    this.item = item;\n    this.completed = false;\n    this.index = arr.length + 1;\n  }\n  const task = new Task(item);\n  arr.push(task);\n  localStorage.setItem('task', JSON.stringify(arr));\n};\n\n\n\n//# sourceURL=webpack://to-do-list/./src/addTask.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* eslint-disable no-use-before-define */\n\n\nconst tasks = [\n  {\n    description: 'Learn HTML',\n    completed: false,\n    index: 2,\n  },\n  {\n    description: 'Learn CSS',\n    completed: false,\n    index: 1,\n  },\n  {\n    description: 'Learn JavaScript',\n    completed: false,\n    index: 0,\n  },\n];\n\nconst viewTasks = () => {\n  const container = document.querySelector('.todo-list-placeholder');\n\n  tasks.sort((a, b) => a.index - b.index);\n\n  tasks.forEach((task) => {\n    const listItem = document.createElement('li');\n    listItem.className = 'list-item';\n    listItem.innerHTML = `<input class=\"check-box\" type=\"checkbox\">${task.description}`;\n    container.appendChild(listItem);\n  });\n};\n\ndocument.addEventListener('DOMContentLoaded', () => {\n  viewTasks();\n});\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _addTask_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./addTask.js */ \"./src/addTask.js\");\n/* harmony import */ var _removeTask_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./removeTask.js */ \"./src/removeTask.js\");\n/* eslint-disable no-use-before-define */\n\n\n\n\n\nconst placeholder = document.querySelector('ul');\nconst simpleTodoTasks = JSON.parse(localStorage.getItem('task')) || [];\n\nconst populateTask = (arr) => {\n  localStorage.setItem('task', JSON.stringify(arr));\n  placeholder.innerHTML = '';\n  for (let i = 0; i < arr.length; i += 1) {\n    const taskDetails = arr[i];\n    const taskHolder = document.createElement('li');\n    taskHolder.setAttribute('data-id', i);\n    taskHolder.className = 'task-container';\n    taskHolder.innerHTML = `<input class='task-content' type='checkbox' data-check>\n    <span class='task-content description'>${taskDetails.item}</span><input class='edit hide'>\n    <span class='task-content index'></span>`;\n\n    const editButton = document.createElement('i');\n    editButton.className = 'fa';\n    editButton.classList.add('fa-pencil');\n    taskHolder.appendChild(editButton);\n\n    const removeButton = document.createElement('i');\n    removeButton.className = 'fa';\n    removeButton.classList.add('fa-trash');\n    removeButton.addEventListener('click', removeList);\n\n    taskHolder.appendChild(removeButton);\n    placeholder.appendChild(taskHolder);\n\n    editButton.addEventListener('click', editTask);\n  }\n};\n\nconst removeList = (event) => {\n  const li = event.target.closest('li');\n  const id = li.getAttribute('data-id');\n  (0,_removeTask_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(simpleTodoTasks, id);\n  simpleTodoTasks.forEach((obj, id) => { obj.index = id + 1; });\n  populateTask(simpleTodoTasks);\n};\n\nconst editTask = (event) => {\n  const li = event.target.closest('li');\n  li.style.backgroundColor = 'rgb(246, 204, 204)';\n  const id = li.getAttribute('data-id');\n  const description = li.children[1];\n  const input = li.children[2];\n  input.value = description.textContent;\n  const closeTask = li.children[5];\n  event.target.display = 'none';\n  closeTask.style.marginRight = '1rem';\n  description.style.display = 'none';\n  input.classList.toggle('hide', false);\n  input.focus();\n  input.addEventListener('keyup', (event) => {\n    if (event.key === 'Enter') {\n      simpleTodoTasks[id].item = input.value;\n      populateTask(simpleTodoTasks);\n    }\n  });\n};\n\npopulateTask(simpleTodoTasks);\n\n_addTask_js__WEBPACK_IMPORTED_MODULE_1__.form.addEventListener('submit', () => {\n  (0,_addTask_js__WEBPACK_IMPORTED_MODULE_1__.addTask)(simpleTodoTasks, _addTask_js__WEBPACK_IMPORTED_MODULE_1__.input.value);\n  populateTask(simpleTodoTasks);\n  _addTask_js__WEBPACK_IMPORTED_MODULE_1__.input.value = '';\n});\n\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/removeTask.js":
+/*!***************************!*\
+  !*** ./src/removeTask.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst removeTask = (arr, index) => {\n  arr.splice(index, 1);\n  localStorage.setItem('task', JSON.stringify(arr));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (removeTask);\n\n//# sourceURL=webpack://to-do-list/./src/removeTask.js?");
 
 /***/ })
 
