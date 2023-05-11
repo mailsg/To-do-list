@@ -8,10 +8,6 @@
   font-weight: 500;
 }
 
-.flex {
-  display: flex;
-}
-
 body {
   display: flex;
   justify-content: center;
@@ -24,6 +20,10 @@ main {
   width: 60%;
   background-color: white;
   box-shadow: 10px 10px 10px rgb(154, 147, 147);
+}
+
+.flex {
+  display: flex;
 }
 
 .placeholder {
@@ -46,15 +46,17 @@ ul {
   margin-right: 1rem;
 }
 
-.todo-heading,
-.input-field,
-.task-container {
-  border-bottom: 2px solid rgb(228, 226, 226);
-  padding: 1rem;
+.edit {
+  width: 40%;
 }
 
-.todo-heading {
-  justify-content: space-between;
+.hide {
+  display: none;
+}
+
+.add-btn {
+  background: transparent;
+  border: none;
 }
 
 .fa-refresh {
@@ -65,20 +67,27 @@ ul {
   color: rgb(154, 150, 150);
 }
 
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 4rem;
-  background-color: lightgrey;
+.strike {
+  text-decoration: line-through;
 }
 
-.footer p {
-  color: rgb(154, 150, 150);
+.unstrike {
+  text-decoration: none;
 }
 
 .task-content {
   margin-right: 2rem;
+}
+
+.todo-heading,
+.input-field,
+.task-container {
+  border-bottom: 2px solid rgb(228, 226, 226);
+  padding: 1rem;
+}
+
+.todo-heading {
+  justify-content: space-between;
 }
 
 .task-container {
@@ -102,23 +111,23 @@ ul {
   margin-right: 1rem;
 }
 
-.edit {
-  width: 40%;
-}
-
-.hide {
-  display: none;
-}
-
-.add-btn {
-  background: transparent;
-  border: none;
-}
-
 .fa-sign-in {
   color: rgb(99, 96, 96);
 }
 
 form {
   justify-content: space-between;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  background-color: lightgrey;
+}
+
+.footer p {
+  color: rgb(154, 150, 150);
+  cursor: pointer;
 }
