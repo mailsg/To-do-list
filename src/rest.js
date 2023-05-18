@@ -1,26 +1,43 @@
 const tasks = [
   {
-    id:1,
-    taskDescription:'task1',
+    id: 1,
+    task: 'Learn HTML',
     completed: false
   },
   {
-    id:2,
-    taskDescription:'task2',
+    id: 2,
+    task: 'Learn CSS',
     completed: false
   },
   {
-    id:3,
-    taskDescription:'task3',
+    id: 3,
+    task: 'Learn JavaScript',
     completed: false
   }
-]
+];
 
-const editTask = (task) => {
-  const foundTask = tasks.find((element) => element.includes(task.id));
+const editTask = (item) => {
+  const { id, task } = item;
+  const selectedTask = tasks.find((task) => task.id === id);
+  selectedTask.task = task;
+};
 
-  foundTask.taskDescription = task.taskDescription;
-  return foundTask.taskDescription;
-}
+const clearTask = () => {
+  const remainingTasks = tasks.filter((task) => !task.completed);
+  remainingTasks.forEach((task, index) => {
+    task.id = index + 1;
+  });
+  return remainingTasks;
+};
 
-console.log(editTask({id:3,taskDescription:'task changed',completed:false}));
+const updateTask = (id, completed) => {
+  const selectedTask = tasks.find((task) => task.id === id);
+  selectedTask.completed = completed;
+  return selectedTask;
+};
+
+module.exports = {
+  editTask,
+  clearTask,
+  updateTask
+};
