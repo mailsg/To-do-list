@@ -108,3 +108,5 @@ const change = (e) => {
 };
 
 populateTask();
+
+export default editTask;
