@@ -1,34 +1,32 @@
-let tasks = [
+const tasks = [
   {
     id: 1,
-    task: 'Learn HTML',
-    completed: false
+    taskDesc: 'Learn HTML',
+    completed: false,
   },
   {
     id: 2,
-    task: 'Learn CSS',
-    completed: false
+    taskDesc: 'Learn CSS',
+    completed: true,
   },
   {
     id: 3,
-    task: 'Learn JavaScript',
-    completed: false
-  }
+    taskDesc: 'Learn JavaScript',
+    completed: false,
+  },
 ];
 
 const editTask = (item) => {
-  const { id, task } = item;
-  const selectedTask = tasks.find((task) => task.id === id);
-  if (selectedTask) {
-    selectedTask.task = task;
-    return selectedTask; 
-  }
+  const { id, taskDesc } = item;
+  const selectedTask = tasks.find((instance) => instance.id === id);
+
+  selectedTask.taskDesc = taskDesc;
 };
 
 const clearTask = () => {
-  tasks = tasks.filter((task) => !task.completed);
+  const Newtasks = tasks.filter((task) => !task.completed);
+  return Newtasks;
 };
-
 
 const updateTask = (taskId) => {
   const taskToUpdate = tasks.find((task) => task.id === taskId);
@@ -41,5 +39,6 @@ const updateTask = (taskId) => {
 module.exports = {
   editTask,
   clearTask,
-  updateTask
+  updateTask,
+  tasks,
 };
