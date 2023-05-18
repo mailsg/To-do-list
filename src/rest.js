@@ -1,4 +1,4 @@
-const tasks = [
+let tasks = [
   {
     id: 1,
     task: 'Learn HTML',
@@ -19,21 +19,23 @@ const tasks = [
 const editTask = (item) => {
   const { id, task } = item;
   const selectedTask = tasks.find((task) => task.id === id);
-  selectedTask.task = task;
+  if (selectedTask) {
+    selectedTask.task = task;
+    return selectedTask; 
+  }
 };
 
 const clearTask = () => {
-  const remainingTasks = tasks.filter((task) => !task.completed);
-  remainingTasks.forEach((task, index) => {
-    task.id = index + 1;
-  });
-  return remainingTasks;
+  tasks = tasks.filter((task) => !task.completed);
 };
 
-const updateTask = (id, completed) => {
-  const selectedTask = tasks.find((task) => task.id === id);
-  selectedTask.completed = completed;
-  return selectedTask;
+
+const updateTask = (taskId) => {
+  const taskToUpdate = tasks.find((task) => task.id === taskId);
+  if (taskToUpdate) {
+    taskToUpdate.completed = true;
+  }
+  return taskToUpdate;
 };
 
 module.exports = {
